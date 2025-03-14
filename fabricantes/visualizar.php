@@ -1,3 +1,8 @@
+<?php
+require_once "../src/funcoes-fabricantes.php";
+$listaDeFabricantes = listarFabricantes($connect);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -20,25 +25,21 @@
 
 		<table class="table table-hover table-bordered w-50">
 			<caption>Lista de Fabricantes</caption>
+
 			<thead class="table-light">
 				<tr>
 					<th>ID</th>
 					<th>Nome</th>
 				</tr>
 			</thead>
+
 			<tbody>
-				<tr>
-					<td> Identificador do fabricante 1... </td>
-					<td> Nome do fabricante 1... </td>
-				</tr>
-				<tr>
-					<td> Identificador do fabricante 2... </td>
-					<td> Nome do fabricante 2... </td>
-				</tr>
-				<tr>
-					<td> Identificador do fabricante 3... </td>
-					<td> Nome do fabricante 3... </td>
-				</tr>
+				<?php foreach ($listaDeFabricantes as $fabricante) { ?>
+					<tr>
+						<td><?= $fabricante["id"] ?></td>
+						<td><?= $fabricante["nome"] ?></td>
+					</tr>
+				<?php } ?>
 			</tbody>
 		</table>
 	</div>

@@ -1,6 +1,8 @@
 <?php
 require_once "../src/funcoes-fabricantes.php";
 $listaDeFabricantes = listarFabricantes($connect);
+
+$quantidadeFabricantes = count($listaDeFabricantes);
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +26,7 @@ $listaDeFabricantes = listarFabricantes($connect);
 
 
 		<table class="table table-hover table-bordered w-50">
-			<caption>Lista de Fabricantes</caption>
+			<caption>Lista de Fabricantes: <?= $quantidadeFabricantes ?></caption>
 
 			<thead class="table-light">
 				<tr>

@@ -9,6 +9,9 @@ if (isset($_POST["inserir"])) {
 	);
 
 	inserirFabricante($connect, $nome);
+
+	header("location:visualizar.php");
+	exit;
 }
 ?>
 

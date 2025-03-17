@@ -1,3 +1,13 @@
+<?php
+
+require_once "../src/funcoes-fabricantes.php";
+
+$id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
+
+$fabricante = carregarFabrincante($connect, $id);
+
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 

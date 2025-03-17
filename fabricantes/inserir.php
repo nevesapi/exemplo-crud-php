@@ -1,3 +1,18 @@
+<?php
+if (isset($_POST["inserir"])) {
+	require_once "../src/funcoes-fabricantes.php";
+
+	$nome = filter_input(
+		INPUT_POST,
+		"nome",
+		FILTER_SANITIZE_FULL_SPECIAL_CHARS
+	);
+
+	inserirFabricante($connect, $nome);
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -18,7 +33,7 @@
 				<label for="nome" class="form-label">Nome:</label>
 				<input class="form-control" required type="text" name="nome" id="nome">
 			</div>
-			<button class="btn btn-success" type="submit" name="inserir">Inserir fabricante</button>
+			<button class="btn btn-success w-100" type="submit" name="inserir">Inserir fabricante</button>
 		</form>
 
 	</div>

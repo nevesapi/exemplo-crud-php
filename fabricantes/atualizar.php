@@ -3,11 +3,17 @@
 require_once "../src/funcoes-fabricantes.php";
 
 $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
+$fabricante = carregarFabricante($connect, $id);
 
-$fabricante = carregarFabrincante($connect, $id);
+if (isset($_POST["atualizar"])) {
+	$nome  = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS);
 
-
+	atualizaFabricante($connect, $nome, $id);
+	header("location:visualizar.php");
+	exit;
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -24,10 +30,13 @@ $fabricante = carregarFabrincante($connect, $id);
 		<hr>
 
 		<form action="" method="post" class="w-25">
+			<input type="hidden" name="id" value="<?= $fabricante["id"] ?>">
+
 			<div class="mb-3">
 				<label for="nome" class="form-label">Nome:</label>
-				<input class="form-control" required type="text" name="nome" id="nome">
+				<input class="form-control" required type="text" name="nome" id="nome" value="<?= $fabricante["nome"] ?>">
 			</div>
+
 			<button class="btn btn-warning" type="submit" name="atualizar">
 				Atualizar fabricante</button>
 		</form>

@@ -1,8 +1,11 @@
 <?php
 require_once "../src/funcoes-produtos.php";
+require_once "../src/funcoes-fabricantes.php";
 
+$listaDeFabricantes = listarFabricantes($connect);
 $listaDeProdutos = listarProdutos($connect);
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -21,7 +24,22 @@ $listaDeProdutos = listarProdutos($connect);
 		<hr>
 		<h2>Lendo e carregando todos os produtos.</h2>
 
-		<p><a class="btn btn-primary btn-sm" href="inserir.php">Inserir novo produto</a></p>
+		<p>
+			<a class="btn btn-primary btn-sm" href="inserir.php">Inserir novo produto</a>
+		</p>
+
+		<div class="row g-2">
+			<?php foreach ($listaDeProdutos as $produto) { ?>
+				<div class="col-sm-6">
+					<article class="bg-body-secondary p-2 rounded-2">
+						<h3><?= $produto["nome"] ?></h3>
+						<h4>Fabricante do produto: <?= $produto["fabricante_id"] ?></h4>
+						<p><b>R$<?= $produto["preco"] ?></b> </p>
+						<p><b>Quantidade:</b> <?= $produto["quantidade"] ?></p>
+					</article>
+				</div>
+			<?php } ?>
+		</div>
 
 
 	</div>

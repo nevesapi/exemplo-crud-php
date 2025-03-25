@@ -1,8 +1,6 @@
 <?php
 require_once "../src/funcoes-produtos.php";
-require_once "../src/funcoes-fabricantes.php";
 
-$listaDeFabricantes = listarFabricantes($connect);
 $listaDeProdutos = listarProdutos($connect);
 ?>
 

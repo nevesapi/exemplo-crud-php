@@ -1,5 +1,11 @@
+<?php
+require_once "../src/funcoes-produtos.php";
+
+$listaDeProdutos = listarProdutos($connect);
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 
 <head>
 	<meta charset="UTF-8">

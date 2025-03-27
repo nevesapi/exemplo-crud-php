@@ -31,8 +31,9 @@ $listaDeProdutos = listarProdutos($connect);
 					<article class="bg-body-secondary p-2 rounded-2">
 						<h3><?= $produto["produto"] ?></h3>
 						<h4>Fabricante: <?= $produto["fabricante"] ?></h4>
-						<p><b><?= $formatarPreco($produto["preco"]) ?></b> </p>
+						<p><b><?= formatarPreco($produto["preco"]) ?></b> </p>
 						<p><b>Quantidade:</b> <?= $produto["quantidade"] ?></p>
+						<p><b>Total:</b> <?= $calcularTotal($produto["preco"], $produto["quantidade"]) ?></p>
 					</article>
 				</div>
 			<?php } ?>

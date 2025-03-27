@@ -4,6 +4,7 @@ require_once "../src/funcoes-produtos.php";
 $listaDeProdutos = listarProdutos($connect);
 ?>
 
+<!-- <pre><?= var_dump($listaDeProdutos) ?></pre> -->
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -30,8 +31,8 @@ $listaDeProdutos = listarProdutos($connect);
 			<?php foreach ($listaDeProdutos as $produto) { ?>
 				<div class="col-sm-6">
 					<article class="bg-body-secondary p-2 rounded-2">
-						<h3><?= $produto["nome"] ?></h3>
-						<h4>Fabricante do produto: <?= $produto["fabricante_id"] ?></h4>
+						<h3><?= $produto["produto"] ?></h3>
+						<h4>Fabricante: <?= $produto["fabricante"] ?></h4>
 						<p><b>R$<?= $produto["preco"] ?></b> </p>
 						<p><b>Quantidade:</b> <?= $produto["quantidade"] ?></p>
 					</article>

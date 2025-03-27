@@ -1,6 +1,6 @@
 <?php
 require_once "../src/funcoes-produtos.php";
-require_once"../src/funcoes-utilitarias.php";
+require_once "../src/funcoes-utilitarias.php";
 
 $listaDeProdutos = listarProdutos($connect);
 ?>
@@ -8,7 +8,6 @@ $listaDeProdutos = listarProdutos($connect);
 <!-- <pre><?= var_dump($listaDeProdutos) ?></pre> -->
 <!DOCTYPE html>
 <html lang="pt-br">
-
 
 <head>
 	<meta charset="UTF-8">
@@ -24,9 +23,7 @@ $listaDeProdutos = listarProdutos($connect);
 		<hr>
 		<h2>Lendo e carregando todos os produtos.</h2>
 
-		<p>
-			<a class="btn btn-primary btn-sm" href="inserir.php">Inserir novo produto</a>
-		</p>
+		<p><a class="btn btn-primary btn-sm" href="inserir.php">Inserir novo produto</a></p>
 
 		<div class="row g-2">
 			<?php foreach ($listaDeProdutos as $produto) { ?>
@@ -40,12 +37,9 @@ $listaDeProdutos = listarProdutos($connect);
 				</div>
 			<?php } ?>
 		</div>
-
-
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 
 </body>
 

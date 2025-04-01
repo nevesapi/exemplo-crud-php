@@ -34,7 +34,7 @@ $listaDeProdutos = listarProdutos($connect);
 						<p><b><?= formatarPreco($produto["preco"]) ?></b> </p>
 						<p><b>Quantidade:</b> <?= $produto["quantidade"] ?></p>
 						<p><b>Total:</b> <?= $calcularTotal($produto["preco"], $produto["quantidade"]) ?></p>
-						<a class="btn btn-warning btn-sm" href="atualizar.php?id=<?= $produto['id'] ?>">Editar</a>
+						<a class="btn btn-primary btn-sm" href="atualizar.php?id=<?= $produto['id'] ?>">Editar</a>
 					</article>
 				</div>
 			<?php } ?>

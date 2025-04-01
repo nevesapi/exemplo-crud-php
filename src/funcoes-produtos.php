@@ -42,3 +42,19 @@ function inserirProduto(PDO $connect, string $nomeProduto,  float $preco, int $q
     die("Erro ao cadastrar produto: " . $erro->getMessage());
   }
 }
+
+function carregarUmProduto(PDO $connect, int $idProduto): array
+{
+  $sql = "SELECT * FROM produtos WHERE id = :idProduto";
+
+  try {
+    $query = $connect->prepare($sql);
+    $query->bindValue(":idProduto", $idProduto, PDO::PARAM_INT);
+
+    $query->execute();
+
+    return $query->fetch(PDO::FETCH_ASSOC);
+  } catch (Exception $erro) {
+    die("Erro ao cadastrar produto: " . $erro->getMessage());
+  }
+}

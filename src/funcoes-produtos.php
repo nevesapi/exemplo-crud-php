@@ -1,5 +1,4 @@
 <?php
-
 require_once "connect.php";
 
 function listarProdutos(PDO $connect): array
@@ -25,7 +24,6 @@ function listarProdutos(PDO $connect): array
   }
 }
 
-
 function inserirProduto(PDO $connect, string $nomeProduto,  float $preco, int $quantidade, int $fabricanteId, string $descricao): void
 {
   $sql = "INSERT INTO produtos(nome, preco, quantidade, fabricante_id, descricao) 
@@ -35,8 +33,8 @@ function inserirProduto(PDO $connect, string $nomeProduto,  float $preco, int $q
     $query = $connect->prepare($sql);
     $query->bindValue(":nome", $nomeProduto, PDO::PARAM_STR);
     $query->bindValue(":preco", $preco, PDO::PARAM_STR);
-    $query->bindValue(":quantidade", $quantidade, PDO::PARAM_STR);
-    $query->bindValue(":fabricanteId", $fabricanteId, PDO::PARAM_STR);
+    $query->bindValue(":quantidade", $quantidade, PDO::PARAM_INT);
+    $query->bindValue(":fabricanteId", $fabricanteId, PDO::PARAM_INT);
     $query->bindValue(":descricao", $descricao, PDO::PARAM_STR);
 
     $query->execute();
